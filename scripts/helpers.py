@@ -25,3 +25,10 @@ def get_bucket_by_id(apikey, bucket_id, limit, offset):
     """ Returns contents of a bucket based on its ID """
     data = requests.get(BASE_URI + "/{}/files/{}/{}?access_token={}".format(bucket_id, offset, limit, apikey))
     print(data.json())
+
+
+def get_bucket_by_id_keyword(apikey, bucket_id, limit, offset, keyword):
+    """ Returns contents of a bucket based on its ID """
+    data = requests.get(BASE_URI + "/{}/files/{}/{}?access_token={}&keywords=".format(bucket_id, offset, limit, apikey,
+                                                                                      keyword))
+    print(data.json())
