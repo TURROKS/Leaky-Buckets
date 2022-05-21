@@ -13,3 +13,12 @@ Search for exposed cloud storage buckets, currently using [GrayHatWarfare](https
 | -a OR --api     | Enter your API            |
 | -k OR --keyword | Keyword for search       |
 | -l OR --limit   | Results Limit             |
+
+### Disclaimer:
+
+Usage of Leaky-Buckets for accessing the buckets without prior mutual consistency can be considered as an illegal 
+activity. 
+
+It is the final user's responsibility to obey all applicable local, state and federal laws. 
+
+**Authors assume no liability and are not responsible for any misuse or damage caused by this program.**
