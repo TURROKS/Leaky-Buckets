@@ -27,13 +27,13 @@ def main():
     """ Confirm API """
     if args.api:
         """ Select Function """
-        if args.keyword:
-            funcs.get_buckets_with_keyword(args.api, args.keyword, args.limit, args.start)
-        elif args.bucket:
+        if args.bucket:
             if args.keyword:
                 funcs.get_bucket_by_id_keyword(args.api, args.bucket, args.limit, args.start, args.keyword)
             else:
                 funcs.get_bucket_by_id(args.api, args.bucket, args.limit, args.start)
+        elif args.keyword:
+            funcs.get_buckets_with_keyword(args.api, args.keyword, args.limit, args.start)
         else:
             funcs.get_buckets_all(args.api, args.limit, args.start)
 
