@@ -9,13 +9,19 @@ __maintainer__ = "Mario Rojas"
 __status__ = "Dev"
 
 
-def get_buckets_all(apikey, limit, start):
+def get_buckets_all(apikey, limit, offset):
     """ Returns all buckets found, accepts a limit argument """
-    data = requests.get(BASE_URI + "{}/{}?access_token={}".format(start, limit, apikey))
+    data = requests.get(BASE_URI + "s/{}/{}?access_token={}".format(offset, limit, apikey))
     print(data.json())
 
 
-def get_buckets_with_keyword(apikey, keyword, limit):
+def get_buckets_with_keyword(apikey, keyword, limit, offset):
     """ Returns buckets based on the input keyword, accepts a limit argument """
-    data = requests.get(BASE_URI+"0/{}?access_token={}&keywords={}".format(limit, apikey, keyword))
+    data = requests.get(BASE_URI+"s/{}/{}?access_token={}&keywords={}".format(offset, limit, apikey, keyword))
+    print(data.json())
+
+
+def get_bucket_by_id(apikey, bucket_id, limit, offset):
+    """ Returns contents of a bucket based on its ID """
+    data = requests.get(BASE_URI + "/{}/files/{}/{}?access_token={}".format(bucket_id, offset, limit, apikey))
     print(data.json())
