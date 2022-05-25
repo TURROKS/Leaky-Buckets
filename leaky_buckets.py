@@ -5,7 +5,7 @@ import scripts.helpers as funcs
 
 __author__ = "Mario Rojas"
 __license__ = "MIT"
-__version__ = "0.1.1"
+__version__ = "0.2.0"
 __maintainer__ = "Mario Rojas"
 __status__ = "Dev"
 
