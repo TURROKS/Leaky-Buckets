@@ -7,3 +7,8 @@ __maintainer__ = "Mario Rojas"
 __status__ = "Dev"
 
 BASE_URI = "https://buckets.grayhatwarfare.com/api/v1/bucket"
+LOGO = """
+░█░░░█▀▀░█▀█░█░█░█░█░░░█▀▄░█░█░█▀▀░█░█░█▀▀░▀█▀░█▀▀
+░█░░░█▀▀░█▀█░█▀▄░░█░░░░█▀▄░█░█░█░░░█▀▄░█▀▀░░█░░▀▀█
+░▀▀▀░▀▀▀░▀░▀░▀░▀░░▀░░░░▀▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀░░▀░░▀▀▀ 
+                                        BY TURROKS"""
