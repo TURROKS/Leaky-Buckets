@@ -3,16 +3,31 @@ Search for exposed cloud storage buckets, currently using [GrayHatWarfare](https
 
 ### Usage
 
+#### All Buckets
+`leaky_buckets.py -a <YOUR_KEY> -l <Results Limit>`
+
+![](misc/image1.png)
+
+#### Buckets by keyword
 `leaky_buckets.py -a <YOUR_KEY> -k <Keyword> -l <Results Limit>`
+
+![](misc/image2.png)
+
+#### Buckets by ID
+`leaky_buckets.py -a <YOUR_KEY> -b <Bucket ID> -l <Results Limit>`
+#### Buckets by ID and Keyword
+`leaky_buckets.py -a <YOUR_KEY> -b <Bucket ID> -k <Keyword> -l <Results Limit>`
 
 ### Arguments
 
-| Fla-            | Description              |
-|-----------------|---------------------------|
-| -h OR --help    | show help message and exit |
-| -a OR --api     | Enter your API            |
-| -k OR --keyword | Keyword for search       |
-| -l OR --limit   | Results Limit             |
+| Flags         | Description                |
+|---------------|----------------------------|
+| -h,  --help   | show help message and exit |
+| -a, --api     | Enter your API             |
+| -b, --bucket  | The ID of a Bucket         |
+| -k, --keyword | Keyword for search         |
+| -l, --limit   | Results Limit              |
+| -s, --start   | Offset for the results     |
 
 ### Disclaimer:
 
