@@ -68,7 +68,7 @@ def get_bucket_by_id(apikey, bucket_id, limit, offset):
     data = requests.get(BASE_URI + "/{}/files/{}/{}?access_token={}".format(bucket_id, offset, limit, apikey))
     parsed = data.json()
     print(colored(LOGO, 'red') + '\n')
-    print('\n' + "{:<7} {:<45} {:<10} {:<20}".format('ID', 'Filename', 'Size', 'Modified'))
+    print('\n' + "{:<10} {:<45} {:<10} {:<20}".format('ID', 'Filename', 'Size', 'Modified'))
     for file in parsed['files']:
 
         file_id = file['id']
@@ -83,7 +83,7 @@ def get_bucket_by_id(apikey, bucket_id, limit, offset):
         # url = file['url']
         # type = file['type']
 
-        print("{:<7} {:<45} {:<10} {:<20}".format(file_id, filename, size, modified))
+        print("{:<10} {:<45} {:<10} {:<20}".format(file_id, filename, size, modified))
     print('\n' + colored(parsed['notice'], 'green'))
 
 
@@ -93,7 +93,7 @@ def get_bucket_by_id_keyword(apikey, bucket_id, limit, offset, keyword):
                                                                                       keyword))
     parsed = data.json()
     print(colored(LOGO, 'red') + '\n')
-    print('\n' + "{:<7} {:<45} {:<10} {:<20}".format('ID', 'Filename', 'Size', 'Modified'))
+    print('\n' + "{:<10} {:<45} {:<10} {:<20}".format('ID', 'Filename', 'Size', 'Modified'))
     for file in parsed['files']:
 
         file_id = file['id']
@@ -108,5 +108,5 @@ def get_bucket_by_id_keyword(apikey, bucket_id, limit, offset, keyword):
         # url = file['url']
         # type = file['type']
 
-        print("{:<7} {:<45} {:<10} {:<20}".format(file_id, filename, size, modified))
+        print("{:<10} {:<45} {:<10} {:<20}".format(file_id, filename, size, modified))
     print('\n' + colored(parsed['notice'], 'green'))
