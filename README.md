@@ -6,12 +6,12 @@ Search for exposed cloud storage buckets, currently using [GrayHatWarfare](https
 #### All Buckets
 `leaky_buckets.py -a <YOUR_KEY> -l <Results Limit>`
 
-![Example1](https://github.com/TURROKS/Leaky-Buckets/blob/master/misc/image1.png)
+![Example1](https://github.com/TURROKS/Leaky-Buckets/blob/main/misc/image1.png)
 
 #### Buckets by keyword
 `leaky_buckets.py -a <YOUR_KEY> -k <Keyword> -l <Results Limit>`
 
-![Example2](https://github.com/TURROKS/Leaky-Buckets/blob/master/misc/image2.png)
+![Example2](https://github.com/TURROKS/Leaky-Buckets/blob/main/misc/image2.png)
 
 #### Buckets by ID
 `leaky_buckets.py -a <YOUR_KEY> -b <Bucket ID> -l <Results Limit>`
