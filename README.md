@@ -11,18 +11,26 @@ The idea behind "Leaky-Buckets" is to simplify the duties of these security team
 You can use this tool to search for Buckets and Files based on keywords i.e. (Company Name, Company Domain, Application Name, etc.)
 
 #### All Buckets
+Returns a list of all the buckets available
+
 `leaky_buckets.py -a <YOUR_KEY> -l <Results Limit>`
 
 ![Example1](https://github.com/TURROKS/Leaky-Buckets/blob/main/misc/image1.png)
 
 #### Buckets by keyword
+Returns only the buckets that match the desired keyword
+
 `leaky_buckets.py -a <YOUR_KEY> -k <Keyword> -l <Results Limit>`
 
 ![Example2](https://github.com/TURROKS/Leaky-Buckets/blob/main/misc/image2.png)
 
-#### Buckets by ID
+#### Bucket details by ID
+Returns details about the files contain inside a bucket
+
 `leaky_buckets.py -a <YOUR_KEY> -b <Bucket ID> -l <Results Limit>`
 #### Buckets by ID and Keyword
+Returns details about the files based on a keyword contain inside a bucket
+
 `leaky_buckets.py -a <YOUR_KEY> -b <Bucket ID> -k <Keyword> -l <Results Limit>`
 
 ### Arguments
