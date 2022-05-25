@@ -20,8 +20,8 @@ def get_buckets_all(apikey, limit, offset):
     """ Returns all buckets found, accepts a limit argument """
     data = requests.get(BASE_URI + "s/{}/{}?access_token={}".format(offset, limit, apikey))
     parsed = data.json()
+    print(colored(LOGO, 'red') + '\n')
     if parsed['buckets_count'] > 0:
-        print(colored(LOGO, 'red') + '\n')
         print('\n'+"{:<7} {:<70} {:<10} {:<10} {:<10}".format('ID', 'Bucket', 'File Count', 'Type', 'Container'))
         for bucket in parsed['buckets']:
 
@@ -37,15 +37,15 @@ def get_buckets_all(apikey, limit, offset):
                                                              container))
         print('\n'+colored(parsed['notice'], 'green'),)
     else:
-        print("No Buckets Found")
+        print(colored("No matches found with your criteria!", 'yellow'))
 
 
 def get_buckets_with_keyword(apikey, keyword, limit, offset):
     """ Returns buckets based on the input keyword, accepts a limit argument """
     data = requests.get(BASE_URI+"s/{}/{}?access_token={}&keywords={}".format(offset, limit, apikey, keyword))
     parsed = data.json()
+    print(colored(LOGO, 'red') + '\n')
     if parsed['buckets_count'] > 0:
-        print(colored(LOGO, 'red') + '\n')
         print('\n'+"{:<7} {:<70} {:<10} {:<10} {:<10}".format('ID', 'Bucket', 'File Count', 'Type', 'Container'))
         for bucket in parsed['buckets']:
 
@@ -60,7 +60,7 @@ def get_buckets_with_keyword(apikey, keyword, limit, offset):
             print("{:<7} {:<70} {:<10} {:<10} {:<10}".format(bucket_id, bucket_name, file_count, bucket_type, container))
         print('\n'+colored(parsed['notice'], 'green'))
     else:
-        print("No Buckets Found")
+        print(colored("No matches found with your criteria!", 'yellow'))
 
 
 def get_bucket_by_id(apikey, bucket_id, limit, offset):
@@ -68,23 +68,26 @@ def get_bucket_by_id(apikey, bucket_id, limit, offset):
     data = requests.get(BASE_URI + "/{}/files/{}/{}?access_token={}".format(bucket_id, offset, limit, apikey))
     parsed = data.json()
     print(colored(LOGO, 'red') + '\n')
-    print('\n' + "{:<10} {:<45} {:<10} {:<20}".format('ID', 'Filename', 'Size', 'Modified'))
-    for file in parsed['files']:
+    if parsed['results'] > 0:
+        print('\n' + "{:<10} {:<45} {:<10} {:<20}".format('ID', 'Filename', 'Size', 'Modified'))
+        for file in parsed['files']:
 
-        file_id = file['id']
-        filename = file['filename']
-        size = file['size']
-        modified = dt.fromtimestamp(file['lastModified']).strftime('%Y-%m-%d %H:%M:%S')
+            file_id = file['id']
+            filename = file['filename']
+            size = file['size']
+            modified = dt.fromtimestamp(file['lastModified']).strftime('%Y-%m-%d %H:%M:%S')
 
-        # Keys available for future use
-        # bucket = file['bucket']
-        # bucket_id = file['bucketId']
-        # path = file['fullPath']
-        # url = file['url']
-        # type = file['type']
+            # Keys available for future use
+            # bucket = file['bucket']
+            # bucket_id = file['bucketId']
+            # path = file['fullPath']
+            # url = file['url']
+            # type = file['type']
 
-        print("{:<10} {:<45} {:<10} {:<20}".format(file_id, filename, size, modified))
-    print('\n' + colored(parsed['notice'], 'green'))
+            print("{:<10} {:<45} {:<10} {:<20}".format(file_id, filename, size, modified))
+        print('\n' + colored(parsed['notice'], 'green'))
+    else:
+        print(colored("No matches found with your criteria!", 'yellow'))
 
 
 def get_bucket_by_id_keyword(apikey, bucket_id, limit, offset, keyword):
@@ -93,20 +96,23 @@ def get_bucket_by_id_keyword(apikey, bucket_id, limit, offset, keyword):
                                                                                       keyword))
     parsed = data.json()
     print(colored(LOGO, 'red') + '\n')
-    print('\n' + "{:<10} {:<45} {:<10} {:<20}".format('ID', 'Filename', 'Size', 'Modified'))
-    for file in parsed['files']:
+    if parsed['results'] > 0:
+        print('\n' + "{:<10} {:<45} {:<10} {:<20}".format('ID', 'Filename', 'Size', 'Modified'))
+        for file in parsed['files']:
 
-        file_id = file['id']
-        filename = file['filename']
-        size = file['size']
-        modified = dt.fromtimestamp(file['lastModified']).strftime('%Y-%m-%d %H:%M:%S')
+            file_id = file['id']
+            filename = file['filename']
+            size = file['size']
+            modified = dt.fromtimestamp(file['lastModified']).strftime('%Y-%m-%d %H:%M:%S')
 
-        # Keys available for future use
-        # bucket = file['bucket']
-        # bucket_id = file['bucketId']
-        # path = file['fullPath']
-        # url = file['url']
-        # type = file['type']
+            # Keys available for future use
+            # bucket = file['bucket']
+            # bucket_id = file['bucketId']
+            # path = file['fullPath']
+            # url = file['url']
+            # type = file['type']
 
-        print("{:<10} {:<45} {:<10} {:<20}".format(file_id, filename, size, modified))
-    print('\n' + colored(parsed['notice'], 'green'))
+            print("{:<10} {:<45} {:<10} {:<20}".format(file_id, filename, size, modified))
+        print('\n' + colored(parsed['notice'], 'green'))
+    else:
+        print(colored("No matches found with your criteria!", 'yellow'))
