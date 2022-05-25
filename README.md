@@ -28,6 +28,9 @@ Returns only the buckets that match the desired keyword
 Returns details about the files contain inside a bucket
 
 `leaky_buckets.py -a <YOUR_KEY> -b <Bucket ID> -l <Results Limit>`
+
+![Example3](https://github.com/TURROKS/Leaky-Buckets/blob/main/misc/image3.png)
+
 #### Buckets by ID and Keyword
 Returns details about the files based on a keyword contain inside a bucket
 
